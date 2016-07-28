@@ -64,7 +64,7 @@
         }
       },
       "references": [
-        "artifact_files/vsphere-5-5-interface.war"
+        "../artifact_files/vsphere-5-5-interface.war"
       ]
     }
   }

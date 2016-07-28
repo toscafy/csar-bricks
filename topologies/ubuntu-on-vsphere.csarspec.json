@@ -2,8 +2,8 @@
   "csar_name": "ubuntu-on-vsphere",
 
   "node_types": {
-    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "node_types/ubuntu-14-04.json" },
-    "VSphere-5-5": { "$toscafy.embedFileAsJson": "node_types/vsphere-5-5.json" }
+    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "../node_type_files/ubuntu-14-04.json" },
+    "VSphere-5-5": { "$toscafy.embedFileAsJson": "../node_type_files/vsphere-5-5.json" }
   },
 
   "topology": {
