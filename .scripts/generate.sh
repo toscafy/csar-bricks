@@ -1,7 +1,11 @@
 #!/bin/sh
 
-toscafy generate -s node_types/vsphere.csarspec.json --refs-only -p -o generated/vsphere.csar
+for NODE_TYPE in vsphere ubuntu
+do
+	toscafy generate -c node_types -s node_types/$NODE_TYPE.csarspec.json --refs-only -p -o generated/$NODE_TYPE.csar
+done
 
-toscafy generate -s node_types/ubuntu.csarspec.json --refs-only -p -o generated/ubuntu.csar
-
-toscafy generate -s topologies/ubuntu-on-vsphere.csarspec.json --refs-only -p -o generated/ubuntu-on-vsphere.csar
+for TOPOLOGY in ubuntu-on-vsphere
+do
+  toscafy generate -c topologies -s topologies/$TOPOLOGY.csarspec.json --refs-only -p -o generated/$TOPOLOGY.csar
+done
