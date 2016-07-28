@@ -1,0 +1,5 @@
+{
+  "node_types": {
+    "VSphere-5-5": { "$toscafy.embedFileAsJson": "node_types/vsphere-5-5.csarspec.json" }
+  }
+}
