@@ -1,0 +1,62 @@
+{
+  "properties_schema": {
+    "VMIP": {
+      "type": "string"
+    },
+    "VMUserName": {
+      "type": "string"
+    },
+    "VMPrivateKey": {
+      "type": "string"
+    },
+    "PackageNames": {
+      "type": "string",
+      "input": [ "installPackage" ]
+    },
+    "TargetAbsolutePath": {
+      "type": "string",
+      "input": [ "transferFile" ]
+    },
+    "SourceURLorLocalPath": {
+      "type": "string",
+      "input": [ "transferFile" ]
+    },
+    "Script": {
+      "type": "string",
+      "input": [ "runScript" ]
+    },
+    "InstallResult": {
+      "type": "string",
+      "output": [ "installPackage" ]
+    },
+    "TransferResult": {
+      "type": "string",
+      "output": [ "transferFile" ]
+    },
+    "ScriptResult": {
+      "type": "string",
+      "output": [ "runScript" ]
+    },
+    "WaitResult": {
+      "type": "string",
+      "output": [ "waitForAvailability" ]
+    }
+  },
+
+  "operations": {
+    "installPackage, transferFile, runScript, waitForAvailability": {
+      "type": "WAR",
+      "artifact_name": "ubuntu-14-04-interface",
+      "properties": {
+        "WSProperties": {
+          "ServiceEndpoint": "/services/org_opentosca_NodeTypes_UbuntuPort",
+          "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_NodeTypes_Ubuntu",
+          "InvocationType": "SOAP/HTTP"
+        }
+      },
+      "references": [
+        "artifact_files/ubuntu-14-04-interface.war"
+      ]
+    }
+  }
+}

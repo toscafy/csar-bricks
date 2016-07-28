@@ -1,0 +1,38 @@
+{
+  "node_types": {
+    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "node_types/ubuntu-14-04.csarspec.json" },
+    "VSphere-5-5": { "$toscafy.embedFileAsJson": "node_types/vsphere-5-5.csarspec.json" }
+  },
+
+  "topologies": {
+    "Main": {
+      "nodes": {
+        "Ubuntu": {
+          "type": "Ubuntu-14-04",
+          "properties": {
+            "VMType": "m1.medium.template4",
+            "VMUserName": "ubuntu",
+            "VMUserPassword": "NotSupportedYes",
+            "VMPublicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxG98EYwVx078JIgCHMwoi3zqF0oqxb1XcM6mjA3dYk4ghU+6fFHR/tD+ZCk20iU6O7EV+dWv77Y0t5fssrHtmCCPPHtujyY9Mh6+mOdMXlVYCJMVVWEy5zfT9tGZJNVrt/jZgAQ1C6chPvTbaiZn2FZGdvbEIpyfCtpvdkk5SAvJsZNIYp1351fQfGlFEP5GZxfkj+lGIaHuURE7C37Sf/nI7Sfh/KzNXd5Rh9R9WU1DH7iOhVjz3GIdZoWTPk+tXbwba/d4to3SfrwylXaY9v51RybuR3/UW9VXReIDXCFQX+Dith+q7DhEyU8KOiylIgmSG45AzM+S4jvUFQMJt imported-openssh-key",
+            "VMKeyPairName": "IAASKalle"
+          }
+        },
+        "VSphere": {
+          "type": "VSphere-5-5",
+          "properties": {
+            "HypervisorEndpoint": "https://iaasvc.informatik.uni-stuttgart.de/sdk",
+            "HypervisorTenantID": "smartservices",
+            "HypervisorUserName": "kepeskn"
+          }
+        }
+      },
+      "relationships": {
+        "Ubuntu-on-VSphere": {
+          "type": "HostedOn",
+          "source": "Ubuntu",
+          "target": "VSphere"
+        }
+      }
+    }
+  }
+}
