@@ -57,11 +57,9 @@
       "type": "WAR",
       "artifact_name": "vsphere-5-5-interface",
       "properties": {
-        "WSProperties": {
-          "ServiceEndpoint": "/services/org_opentosca_nodetypes_VMWare5_5__CloudProviderInterfacePort",
-          "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_nodetypes_VMWare5_5__CloudProviderInterface",
-          "InvocationType": "SOAP/HTTP"
-        }
+        "ServiceEndpoint": "/services/org_opentosca_nodetypes_VMWare5_5__CloudProviderInterfacePort",
+        "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_nodetypes_VMWare5_5__CloudProviderInterface",
+        "InvocationType": "SOAP/HTTP"
       },
       "references": [
         "../artifact_files/vsphere-5-5-interface.war"

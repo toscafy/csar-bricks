@@ -48,11 +48,9 @@
       "type": "WAR",
       "artifact_name": "ubuntu-14-04-interface",
       "properties": {
-        "WSProperties": {
-          "ServiceEndpoint": "/services/org_opentosca_NodeTypes_UbuntuPort",
-          "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_NodeTypes_Ubuntu",
-          "InvocationType": "SOAP/HTTP"
-        }
+        "ServiceEndpoint": "/services/org_opentosca_NodeTypes_UbuntuPort",
+        "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_NodeTypes_Ubuntu",
+        "InvocationType": "SOAP/HTTP"
       },
       "references": [
         "../artifact_files/ubuntu-14-04-interface.war"
