@@ -56,5 +56,8 @@
         "../artifact_files/ubuntu-14-04-interface.war"
       ]
     }
-  }
+  },
+
+  "icon_16": { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fubuntu-14-04/Ubuntu-14-04/appearance/smallIcon.png" },
+  "icon_64": { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fubuntu-14-04/Ubuntu-14-04/appearance/bigIcon.png" }
 }
