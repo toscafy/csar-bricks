@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - '4'
+
+script:
+- sh .scripts/generate.sh
+
 deploy:
   provider: releases
   api_key:
