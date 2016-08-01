@@ -1,8 +1,16 @@
 {
-  "csar_name": "all_node_types",
+  "csar_name": "csar-bricks",
 
   "node_types": {
     "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "../node_type_files/ubuntu-14-04.json" },
     "VSphere-5-5": { "$toscafy.embedFileAsJson": "../node_type_files/vsphere-5-5.json" }
-  }
+  },
+
+  "winery_icons": [
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fcsar-bricks/Ubuntu-14-04/appearance/smallIcon.png" },
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fcsar-bricks/Ubuntu-14-04/appearance/bigIcon.png" },
+
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fcsar-bricks/VSphere-5-5/appearance/smallIcon.png" },
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fcsar-bricks/VSphere-5-5/appearance/bigIcon.png" }
+  ]
 }

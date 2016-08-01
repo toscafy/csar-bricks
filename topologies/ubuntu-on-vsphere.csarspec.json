@@ -1,5 +1,5 @@
 {
-  "csar_name": "ubuntu-on-vsphere",
+  "csar_name": "csar-bricks",
 
   "node_types": {
     "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "../node_type_files/ubuntu-14-04.json" },
