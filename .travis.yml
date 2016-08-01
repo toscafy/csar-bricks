@@ -13,8 +13,9 @@ deploy:
   api_key:
     secure: U5GAWPzVDPHa2335SdWvplYUwz1Zp+CwNvYq9hXQRDRt4fppkCvanqCjPJHVcsRWaJzQJroYjw5PyBscO6h88PBlyGeD2e3msBPabGBwy3bE6MrncBSje/l23HReSdVCmnlVONQQA2TCGuvamGnEZspxQWeqqoAARZ50q1AyWhZXPg0yygqmvyYKhsKKug4M2UqZ7J97Hm5XUAyVAeyt+Gu2PlpOCOHcCmiep3rZOpcoLETufLcX/38xWwDAHauemTWBtYYvyYE9+VlF0++a6FhSKEEdD6F9FVXcz4TlP694IyhQCXaz+FDNgCkxgNmRP5ZcsQikgbsp3dY5oK6j3C/e4NWz7W8gaMPJO3K/m1cmXk58dkv2V3qQjE35EtofyiWUFK66FjA/kCdG25Rh9bJ0+11MdRsr5hqZBXOosgMvlciA3ZfkXs/XWocDilZIPtMcgGuXY3RND4hVSCJAlDoIyNLfZ2M0xOK3cN2L0Zq+DA63eTylELg97aEXxLncI6cp2p/zIkXLAmno1X+FzepmdEJN7pSWAsAW9dtIfI7stEEoW80blj87WYyMiu3PaZcrmGpzdZxVw/tYGcXCa2SzA+UO4cWXgMmcMiNRmdZOLfOMupmq12+fmgzWckWMP19xE5/RpVs8QRGy4C7ZM1gCobOXsWiONdWWv5EVgPA=
   file:
-  - generated/all_node_types.csar
+  - generated/*.csar
   - generated/ubuntu-on-vsphere.csar
+  file_glob: true
   skip_cleanup: true
   on:
     tags: true
