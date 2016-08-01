@@ -2,6 +2,7 @@
 
 : ${WINERY_ENDPOINT:=http://winery.opentosca.org/winery/}
 
-curl -L -F "file=@generated/vsphere.csar" $WINERY_ENDPOINT
-
-curl -L -F "file=@generated/ubuntu.csar" $WINERY_ENDPOINT
+for NAME in all_node_types ubuntu-on-vsphere
+do
+  curl -L -F "file=@generated/$NAME.csar" $WINERY_ENDPOINT
+done

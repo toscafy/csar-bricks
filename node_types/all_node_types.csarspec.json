@@ -1,0 +1,8 @@
+{
+  "csar_name": "all_node_types",
+
+  "node_types": {
+    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "../node_type_files/ubuntu-14-04.json" },
+    "VSphere-5-5": { "$toscafy.embedFileAsJson": "../node_type_files/vsphere-5-5.json" }
+  }
+}
