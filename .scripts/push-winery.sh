@@ -1,6 +1,6 @@
 #!/bin/bash
 
-: ${WINERY_ENDPOINT:=http://winery.opentosca.org/winery/}
+: ${WINERY_ENDPOINT:=http://winery.opentosca.org/winery}
 
 for NAME in all_node_types ubuntu-on-vsphere
 do
