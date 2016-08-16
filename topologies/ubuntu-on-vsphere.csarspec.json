@@ -8,6 +8,7 @@
 
   "topology": {
     "name": "Ubuntu-on-VSphere",
+    "namespace": "http://toscafy.github.io/generated/topologies/Ubuntu-on-VSphere",
     "nodes": {
       "ubuntu": {
         "type": "Ubuntu",

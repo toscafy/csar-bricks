@@ -1,7 +1,7 @@
 {
   "node_types": {
     "Ubuntu-14-04": {
-      "namespace": "http://toscafy.github.io/generated/ubuntu-14-04",
+      "namespace": "http://toscafy.github.io/generated/node_types/Ubuntu-14-04",
       "properties_schema": {
         "VMIP": {
           "type": "string"

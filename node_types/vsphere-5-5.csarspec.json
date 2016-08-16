@@ -1,7 +1,7 @@
 {
   "node_types": {
     "VSphere-5-5": {
-      "namespace": "http://toscafy.github.io/generated/vsphere-5-5",
+      "namespace": "http://toscafy.github.io/generated/node_types/VSphere-5-5",
       "properties_schema": {
         "HypervisorEndpoint": {
           "type": "string"

@@ -7,10 +7,10 @@
   },
 
   "winery_icons": [
-    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2FUbuntu-14-04/Ubuntu-14-04/appearance/smallIcon.png" },
-    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2FUbuntu-14-04/Ubuntu-14-04/appearance/bigIcon.png" },
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fnode_types%2FUbuntu-14-04/Ubuntu-14-04/appearance/smallIcon.png" },
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000001?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fnode_types%2FUbuntu-14-04/Ubuntu-14-04/appearance/bigIcon.png" },
 
-    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2FVSphere-5-5/VSphere-5-5/appearance/smallIcon.png" },
-    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2FVSphere-5-5/VSphere-5-5/appearance/bigIcon.png" }
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=16&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fnode_types%2FVSphere-5-5/VSphere-5-5/appearance/smallIcon.png" },
+    { "$toscafy.fetchAsFile": "http://www.gravatar.com/avatar/0000000002?s=64&d=identicon&r=PG", "filename": "nodetypes/http%3A%2F%2Ftoscafy.github.io%2Fgenerated%2Fnode_types%2FVSphere-5-5/VSphere-5-5/appearance/bigIcon.png" }
   ]
 }
