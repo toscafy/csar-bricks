@@ -1,0 +1,74 @@
+{
+  "node_types": {
+    "VSphere-5-5": {
+      "namespace": "http://toscafy.github.io/generated/vsphere-5-5",
+      "properties_schema": {
+        "HypervisorEndpoint": {
+          "type": "string"
+        },
+        "HypervisorTenantID": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "HypervisorUserName": {
+          "type": "string"
+        },
+        "HypervisorUserPassword": {
+          "type": "string"
+        },
+        "VMInstanceID": {
+          "type": "string",
+          "input": [ "terminateVM" ],
+          "output": [ "createVM" ]
+        },
+        "VMIP": {
+          "type": "string",
+          "output": [ "createVM" ]
+        },
+        "VMType": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMImageID": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMUserName": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMUserPassword": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMPrivateKey": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMPublicKey": {
+          "type": "string",
+          "input": [ "createVM" ]
+        },
+        "VMKeyPairName": {
+          "type": "string",
+          "input": [ "createVM" ]
+        }
+      },
+
+      "operations": {
+        "createVM, terminateVM": {
+          "type": "WAR",
+          "artifact_name": "vsphere-5-5-interface",
+          "properties": {
+            "ServiceEndpoint": "/services/org_opentosca_nodetypes_VMWare5_5__CloudProviderInterfacePort",
+            "PortType": "{http://opentosca.org/implementationartifacts}org_opentosca_nodetypes_VMWare5_5__CloudProviderInterface",
+            "InvocationType": "SOAP/HTTP"
+          },
+          "references": [
+            "../artifact_files/vsphere-5-5-interface.war"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for NAME in all_node_types
+for NAME in all ubuntu-14-04 vsphere-5-5
 do
   toscafy generate -c node_types -s node_types/$NAME.csarspec.json --refs-only -p -o generated/$NAME.csar
 done

@@ -2,15 +2,15 @@
   "csar_name": "csar-bricks",
 
   "node_types": {
-    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "../node_type_files/ubuntu-14-04.json" },
-    "VSphere-5-5": { "$toscafy.embedFileAsJson": "../node_type_files/vsphere-5-5.json" }
+    "Ubuntu": { "$toscafy.embedFileAsJson": "../node_types/ubuntu-14-04.csarspec.json", "part": "Ubuntu-14-04" },
+    "VSphere": { "$toscafy.embedFileAsJson": "../node_types/vsphere-5-5.csarspec.json", "part": "VSphere-5-5" }
   },
 
   "topology": {
     "name": "Ubuntu-on-VSphere",
     "nodes": {
-      "Ubuntu": {
-        "type": "Ubuntu-14-04",
+      "ubuntu": {
+        "type": "Ubuntu",
         "properties": {
           "VMType": "m1.medium.template4",
           "VMUserName": "ubuntu",
@@ -19,8 +19,8 @@
           "VMKeyPairName": "IAASKalle"
         }
       },
-      "VSphere": {
-        "type": "VSphere-5-5",
+      "vsphere": {
+        "type": "VSphere",
         "properties": {
           "HypervisorEndpoint": "https://iaasvc.informatik.uni-stuttgart.de/sdk",
           "HypervisorTenantID": "smartservices",
@@ -31,8 +31,8 @@
     "relationships": {
       "Ubuntu-hostedOn-VSphere": {
         "type": "HostedOn",
-        "source": "Ubuntu",
-        "target": "VSphere"
+        "source": "ubuntu",
+        "target": "vsphere"
       }
     }
   }
