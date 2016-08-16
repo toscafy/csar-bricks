@@ -2,8 +2,8 @@
   "csar_name": "csar-bricks",
 
   "node_types": {
-    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "./ubuntu-14-04.csarspec.json", "part": "Ubuntu-14-04" },
-    "VSphere-5-5": { "$toscafy.embedFileAsJson": "./vsphere-5-5.csarspec.json", "part": "VSphere-5-5" }
+    "Ubuntu-14-04": { "$toscafy.embedFileAsJson": "./ubuntu-14-04.csarspec.json", "part": "node_types.Ubuntu-14-04" },
+    "VSphere-5-5": { "$toscafy.embedFileAsJson": "./vsphere-5-5.csarspec.json", "part": "node_types.VSphere-5-5" }
   },
 
   "winery_icons": [
