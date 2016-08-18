@@ -2,7 +2,7 @@
 
 : ${WINERY_ENDPOINT:=http://winery.opentosca.org/winery}
 
-for NAME in all ubuntu-14-04 vsphere-5-5 ubuntu-on-vsphere
+for CSAR in generated/*
 do
-  curl -L -F "file=@generated/$NAME.csar" $WINERY_ENDPOINT
+  curl -L -F "file=@$CSAR" $WINERY_ENDPOINT
 done
