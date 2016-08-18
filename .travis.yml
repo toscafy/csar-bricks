@@ -18,14 +18,16 @@ before_install:
 
 before_script:
 - npm install toscafy -g
+- git clone --recursive https://github.com/jojow/opentosca-dockerfiles.git dockerfiles
 
 script:
 - sh .scripts/generate.sh
-- git clone --recursive https://github.com/jojow/opentosca-dockerfiles.git dockerfiles
 - cp generated/ubuntu-on-vsphere.csar dockerfiles/runner/csars/
-- cd dockerfiles && docker-compose -f docker-compose-runner.yml up pre-runner
-- cd dockerfiles && docker-compose -f docker-compose-runner.yml up post-runner
-- cd dockerfiles && docker-compose -f docker-compose-runner.yml down
+- cd dockerfiles
+- docker-compose -f docker-compose-runner.yml up pre-runner
+- docker-compose -f docker-compose-runner.yml up post-runner
+- docker-compose -f docker-compose-runner.yml logs
+- docker-compose -f docker-compose-runner.yml down
 
 deploy:
   provider: releases
