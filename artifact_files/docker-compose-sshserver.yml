@@ -1,0 +1,6 @@
+version: '2'
+services:
+  sshserver:
+    image: any2api/testssh
+    ports:
+    - '22'
