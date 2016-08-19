@@ -9,3 +9,9 @@ for NAME in ubuntu-on-vsphere
 do
   toscafy generate -c topologies -s topologies/$NAME.csarspec.json --refs-only -p -o generated/$NAME.topology.csar
 done
+
+#
+# playground
+#
+
+toscafy generate -c playground/wordpress -s playground/wordpress/csarspec.json --refs-only -p -o generated-playground/wordpress.csar
