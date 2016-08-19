@@ -1,0 +1,152 @@
+{
+  "csar_name": "wordpress",
+
+  "node_types": {
+    "SSHContainer": { "$toscafy.embedFileAsJson": "../../node_types/sshcontainer.csarspec.json", "part": "node_types.SSHContainer" },
+
+    "Subversion": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "install-svn": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-svn" } }
+            }
+          }
+        }
+      }
+    },
+
+    "Nodejs": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "install-nodejs": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-nodejs" } }
+            }
+          }
+        }
+      }
+    },
+
+    "Grunt": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "install-grunt": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-grunt" } }
+            }
+          }
+        }
+      }
+    },
+
+    "PHPUnit": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "install-phpunit": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-phpunit" } }
+            }
+          }
+        }
+      }
+    },
+
+    "MySQL": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "install-mysql": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-mysql" } }
+            }
+          }
+        }
+      }
+    },
+
+    "WordPress-Build": {
+      "operations": {
+        "build": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "build-wordpress": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.build-wordpress" } }
+            }
+          }
+        }
+      }
+    },
+
+    "WordPress-Test": {
+      "operations": {
+        "test": {
+          "type": "any2api",
+          "wrap": "rest-api",
+          "properties": {
+            "apispec": {
+              "executables": { "test-wordpress": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.test-wordpress" } }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "topology": {
+    "name": "wordpress-build-test",
+    "nodes": {
+      "build-test-container": {
+        "type": "SSHContainer"
+      },
+      "svn": {
+        "type": "Subversion",
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" }
+        ]
+      },
+      "nodejs": {
+        "type": "Nodejs",
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" }
+        ]
+      },
+      "grunt": {
+        "type": "Grunt",
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" }
+        ]
+      },
+      "phpunit": {
+        "type": "PHPUnit",
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" }
+        ]
+      },
+      "mysql": {
+        "type": "MySQL",
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" }
+        ]
+      },
+      "wordpress-build": {
+        "type": "WordPress-Build",
+        "relationships": [ "svn", "nodejs", "grunt" ]
+      },
+      "wordpress-test": {
+        "type": "WordPress-Test",
+        "relationships": [ "nodejs", "grunt", "phpunit", "mysql" ]
+      }
+    }
+  }
+}
