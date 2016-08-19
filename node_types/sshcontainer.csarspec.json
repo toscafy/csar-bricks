@@ -1,0 +1,39 @@
+{
+  "node_types": {
+    "SSHContainer": {
+      "namespace": "http://toscafy.github.io/generated/node_types/SSHContainer",
+      "properties_schema": {
+        "SSH_USERNAME": {
+          "type": "string",
+          "default": "root"
+        },
+        "SSH_PASSWORD": {
+          "type": "string",
+          "default": "root"
+        },
+        "SSH_PUBLIC_KEY": {
+          "type": "string",
+          "default": { "$toscafy.fetchAsText": "https://raw.githubusercontent.com/any2api/any2api-testssh/master/ssh_id_rsa.pub" }
+        },
+        "SSH_PRIVATE_KEY": {
+          "type": "string",
+          "default": { "$toscafy.fetchAsText": "https://raw.githubusercontent.com/any2api/any2api-testssh/master/ssh_id_rsa" }
+        }
+      },
+
+      "operations": {
+        "ssh": {
+          "type": "DockerCompose",
+          "properties": {
+            "contextFile": "docker-compose-sshserver.yml",
+            "serviceName": "sshserver",
+            "containerPort": "22"
+          },
+          "references": [
+            "../artifact_files/docker-compose-sshserver.yml"
+          ]
+        }
+      }
+    }
+  }
+}
