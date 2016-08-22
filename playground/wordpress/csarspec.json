@@ -8,11 +8,12 @@
       "operations": {
         "install": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "install-svn",
           "properties": {
-            "apispec": {
-              "executables": { "install-svn": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-svn" } }
-            }
+            "parameters": {
+              "cmd": "apt-get update -y && apt-get install -y subversion"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -22,11 +23,12 @@
       "operations": {
         "install": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "install-nodejs",
           "properties": {
-            "apispec": {
-              "executables": { "install-nodejs": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-nodejs" } }
-            }
+            "parameters": {
+              "cmd": "apt-get update -y && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_4.x | bash - && apt-get install -y nodejs build-essential && npm install -g npm"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -36,11 +38,12 @@
       "operations": {
         "install": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "install-grunt",
           "properties": {
-            "apispec": {
-              "executables": { "install-grunt": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-grunt" } }
-            }
+            "parameters": {
+              "cmd": "npm install -g grunt-cli"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -50,11 +53,12 @@
       "operations": {
         "install": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "install-phpunit",
           "properties": {
-            "apispec": {
-              "executables": { "install-phpunit": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-phpunit" } }
-            }
+            "parameters": {
+              "cmd": "apt-get update -y && apt-get install -y phpunit"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -64,11 +68,12 @@
       "operations": {
         "install": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "install-mysql",
           "properties": {
-            "apispec": {
-              "executables": { "install-mysql": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.install-mysql" } }
-            }
+            "parameters": {
+              "cmd": "export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y php5-mysql mysql-server"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -78,11 +83,12 @@
       "operations": {
         "build": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "build-wordpress",
           "properties": {
-            "apispec": {
-              "executables": { "build-wordpress": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.build-wordpress" } }
-            }
+            "parameters": {
+              "cmd": "svn co http://develop.svn.wordpress.org/tags/4.5 && cd 4.5 && npm install && grunt build"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -92,11 +98,12 @@
       "operations": {
         "test": {
           "type": "any2api",
-          "wrap": "rest-api",
+          "artifact_name": "test-wordpress",
           "properties": {
-            "apispec": {
-              "executables": { "test-wordpress": { "$toscafy.embedFileAsJson": "apispec.json", "part": "executables.test-wordpress" } }
-            }
+            "parameters": {
+              "cmd": "cd 4.5 && apt-get update -y && apt-get install -y libfontconfig && cp wp-tests-config-sample.php wp-tests-config.php && sed -i \"s/youremptytestdbnamehere/wordpress_tests/\" wp-tests-config.php && sed -i \"s/yourusernamehere/root/\" wp-tests-config.php && sed -i \"s/yourpasswordhere//\" wp-tests-config.php && service mysql start && mysql -e \"CREATE DATABASE wordpress_tests;\" -uroot && grunt --force test"
+            },
+            "results": [ "stdout", "stderr" ]
           }
         }
       }
@@ -124,7 +131,8 @@
       "grunt": {
         "type": "Grunt",
         "relationships": [
-          { "type": "HostedOn", "target": "build-test-container" }
+          { "type": "HostedOn", "target": "build-test-container" },
+          "nodejs"
         ]
       },
       "phpunit": {
@@ -141,11 +149,17 @@
       },
       "wordpress-build": {
         "type": "WordPress-Build",
-        "relationships": [ "svn", "nodejs", "grunt" ]
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" },
+          "svn", "nodejs", "grunt"
+        ]
       },
       "wordpress-test": {
         "type": "WordPress-Test",
-        "relationships": [ "nodejs", "grunt", "phpunit", "mysql" ]
+        "relationships": [
+          { "type": "HostedOn", "target": "build-test-container" },
+          "nodejs", "grunt", "phpunit", "mysql"
+        ]
       }
     }
   }
