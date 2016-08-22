@@ -1,0 +1,113 @@
+{
+  "executables": {
+    "install-svn": {
+      "parameters_schema": {
+        "cmd": {
+          "type": "string",
+          "default": "apt-get update -y && apt-get install -y subversion"
+        }
+      },
+      "parameters_required": [ "cmd" ],
+      "results_schema": {
+        "stdout": {
+          "type": "string",
+          "mapping": "stdout"
+        },
+        "stderr": {
+          "type": "string",
+          "mapping": "stderr"
+        }
+      },
+      "path": ".",
+      "type": "shell"
+    },
+
+    "install-nodejs": {
+      "parameters_schema": {
+        "cmd": {
+          "type": "string",
+          "default": "apt-get update -y && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_4.x | bash - && apt-get install -y nodejs build-essential && npm install -g npm"
+        }
+      },
+      "parameters_required": [ "cmd" ],
+      "results_schema": {
+        "stdout": {
+          "type": "string",
+          "mapping": "stdout"
+        },
+        "stderr": {
+          "type": "string",
+          "mapping": "stderr"
+        }
+      },
+      "path": ".",
+      "type": "shell"
+    },
+
+    "install-grunt": {
+      "parameters_schema": {
+        "cmd": {
+          "type": "string",
+          "default": "npm install -g grunt-cli"
+        }
+      },
+      "parameters_required": [ "cmd" ],
+      "results_schema": {
+        "stdout": {
+          "type": "string",
+          "mapping": "stdout"
+        },
+        "stderr": {
+          "type": "string",
+          "mapping": "stderr"
+        }
+      },
+      "path": ".",
+      "type": "shell"
+    },
+
+    "install-phpunit": {
+      "parameters_schema": {
+        "cmd": {
+          "type": "string",
+          "default": "apt-get update -y && apt-get install -y phpunit"
+        }
+      },
+      "parameters_required": [ "cmd" ],
+      "results_schema": {
+        "stdout": {
+          "type": "string",
+          "mapping": "stdout"
+        },
+        "stderr": {
+          "type": "string",
+          "mapping": "stderr"
+        }
+      },
+      "path": ".",
+      "type": "shell"
+    },
+
+    "install-mysql": {
+      "parameters_schema": {
+        "cmd": {
+          "type": "string",
+          "default": "export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y php5-mysql mysql-server"
+        }
+      },
+      "parameters_required": [ "cmd" ],
+      "results_schema": {
+        "stdout": {
+          "type": "string",
+          "mapping": "stdout"
+        },
+        "stderr": {
+          "type": "string",
+          "mapping": "stderr"
+        }
+      },
+      "path": ".",
+      "type": "shell"
+    }
+  }
+}

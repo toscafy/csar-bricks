@@ -6,76 +6,31 @@
 
     "Subversion": {
       "operations": {
-        "install": {
-          "type": "any2api",
-          "artifact_name": "install-svn",
-          "properties": {
-            "parameters": {
-              "cmd": "apt-get update -y && apt-get install -y subversion"
-            },
-            "results": [ "stdout", "stderr" ]
-          }
-        }
+        "install": [ "install-deps" ]
       }
     },
 
     "Nodejs": {
       "operations": {
-        "install": {
-          "type": "any2api",
-          "artifact_name": "install-nodejs",
-          "properties": {
-            "parameters": {
-              "cmd": "apt-get update -y && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_4.x | bash - && apt-get install -y nodejs build-essential && npm install -g npm"
-            },
-            "results": [ "stdout", "stderr" ]
-          }
-        }
+        "install": [ "install-deps" ]
       }
     },
 
     "Grunt": {
       "operations": {
-        "install": {
-          "type": "any2api",
-          "artifact_name": "install-grunt",
-          "properties": {
-            "parameters": {
-              "cmd": "npm install -g grunt-cli"
-            },
-            "results": [ "stdout", "stderr" ]
-          }
-        }
+        "install": [ "install-deps" ]
       }
     },
 
     "PHPUnit": {
       "operations": {
-        "install": {
-          "type": "any2api",
-          "artifact_name": "install-phpunit",
-          "properties": {
-            "parameters": {
-              "cmd": "apt-get update -y && apt-get install -y phpunit"
-            },
-            "results": [ "stdout", "stderr" ]
-          }
-        }
+        "install": [ "install-deps" ]
       }
     },
 
     "MySQL": {
       "operations": {
-        "install": {
-          "type": "any2api",
-          "artifact_name": "install-mysql",
-          "properties": {
-            "parameters": {
-              "cmd": "export DEBIAN_FRONTEND=noninteractive && apt-get update -y && apt-get install -y php5-mysql mysql-server"
-            },
-            "results": [ "stdout", "stderr" ]
-          }
-        }
+        "install": [ "install-deps" ]
       }
     },
 
@@ -106,6 +61,15 @@
             "results": [ "stdout", "stderr" ]
           }
         }
+      }
+    }
+  },
+
+  "artifacts": {
+    "install-deps": {
+      "type": "any2api",
+      "properties": {
+        "apispec": { "$toscafy.embedFileAsJson": "./apispec.json" }
       }
     }
   },
