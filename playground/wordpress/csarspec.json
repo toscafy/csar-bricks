@@ -41,7 +41,7 @@
           "artifact_name": "build-wordpress",
           "properties": {
             "parameters": {
-              "cmd": "svn co http://develop.svn.wordpress.org/tags/4.5 && cd 4.5 && npm install && grunt build"
+              "cmd": "svn co http://develop.svn.wordpress.org/tags/4.5 /tmp/wordpress-4.5 && cd /tmp/wordpress-4.5 && npm install && grunt build"
             },
             "results": [ "stdout", "stderr" ]
           }
@@ -56,7 +56,7 @@
           "artifact_name": "test-wordpress",
           "properties": {
             "parameters": {
-              "cmd": "cd 4.5 && apt-get update -y && apt-get install -y libfontconfig && cp wp-tests-config-sample.php wp-tests-config.php && sed -i \"s/youremptytestdbnamehere/wordpress_tests/\" wp-tests-config.php && sed -i \"s/yourusernamehere/root/\" wp-tests-config.php && sed -i \"s/yourpasswordhere//\" wp-tests-config.php && service mysql start && mysql -e \"CREATE DATABASE wordpress_tests;\" -uroot && grunt --force test"
+              "cmd": "cd /tmp/wordpress-4.5 && apt-get update -y && apt-get install -y libfontconfig && cp wp-tests-config-sample.php wp-tests-config.php && sed -i \"s/youremptytestdbnamehere/wordpress_tests/\" wp-tests-config.php && sed -i \"s/yourusernamehere/root/\" wp-tests-config.php && sed -i \"s/yourpasswordhere//\" wp-tests-config.php && service mysql start && mysql -e \"CREATE DATABASE wordpress_tests;\" -uroot && grunt --force test"
             },
             "results": [ "stdout", "stderr" ]
           }

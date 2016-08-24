@@ -9,10 +9,11 @@ cd dockerfiles
 
 docker-compose -f docker-compose-runner.yml pull
 docker-compose -f docker-compose-runner.yml build
-
 docker-compose -f docker-compose-runner.yml up pre-runner
-docker-compose -f docker-compose-runner.yml up runner
-docker-compose -f docker-compose-runner.yml up post-runner
 
-docker-compose -f docker-compose-runner.yml logs
+export RUNNER_CONTEXT_DIR=$(pwd)/../playground/wordpress
+docker-compose -f docker-compose-runner.yml up runner
+
+docker-compose -f docker-compose-runner.yml up post-runner
+#docker-compose -f docker-compose-runner.yml logs
 docker-compose -f docker-compose-runner.yml down

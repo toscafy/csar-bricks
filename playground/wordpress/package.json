@@ -1,0 +1,14 @@
+{
+  "name": "build-test-plan",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node build-test-plan.js"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "got": "^6.3.0",
+    "lodash": "^4.15.0",
+    "any2api-testssh": "*"
+  }
+}
