@@ -1,0 +1,36 @@
+{
+  "csar_name": "smoketest",
+
+  "node_types": {
+    "SSHContainer": { "$toscafy.embedFileAsJson": "../../node_types/sshcontainer.csarspec.json", "part": "node_types.SSHContainer" },
+
+    "Nodejs": {
+      "operations": {
+        "install": {
+          "type": "any2api",
+          "artifact_name": "install-nodejs",
+          "properties": {
+            "parameters": {
+              "cmd": "apt-get update -y && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_4.x | bash - && apt-get install -y nodejs build-essential && npm install -g npm"
+            },
+            "results": [ "stdout", "stderr" ]
+          }
+        }
+      }
+    }
+  },
+
+  "topology": {
+    "nodes": {
+      "test-container": {
+        "type": "SSHContainer"
+      },
+      "nodejs": {
+        "type": "Nodejs",
+        "relationships": [
+          { "type": "HostedOn", "target": "test-container" }
+        ]
+      }
+    }
+  }
+}
