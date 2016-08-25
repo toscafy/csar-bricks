@@ -2,7 +2,8 @@
 
 git clone https://github.com/jojow/opentosca-dockerfiles.git dockerfiles
 
-cp generated/*.topology.csar dockerfiles/runner/csars/
+#cp generated/*.topology.csar dockerfiles/runner/csars/
+cp generated/$CSAR.csar dockerfiles/runner/csars/
 
 cd dockerfiles
 

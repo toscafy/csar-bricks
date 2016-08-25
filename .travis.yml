@@ -11,7 +11,7 @@ env:
   global:
   - DOCKER_COMPOSE_VERSION=1.8.0
   matrix:
-  - RUNNER=smoketest
+  - CSAR=smoketest.topology RUNNER=smoketest
 
 before_install:
 - sudo rm -rf /usr/local/bin/docker-compose
