@@ -2,7 +2,7 @@
   "csar_name": "smoketest",
 
   "node_types": {
-    "SSHContainer": { "$toscafy.embedFileAsJson": "../../node_types/sshcontainer.csarspec.json", "part": "node_types.SSHContainer" },
+    "SSHContainer": { "$toscafy.embedFileAsJson": "../node_types/sshcontainer.csarspec.json", "part": "node_types.SSHContainer" },
 
     "Nodejs": {
       "operations": {
