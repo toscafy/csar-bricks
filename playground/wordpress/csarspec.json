@@ -41,7 +41,7 @@
           "artifact_name": "build-wordpress",
           "properties": {
             "parameters": {
-              "cmd": "svn co http://develop.svn.wordpress.org/tags/4.5 /tmp/wordpress-4.5 && cd /tmp/wordpress-4.5 && npm install && grunt build"
+              "cmd": "svn co http://develop.svn.wordpress.org/tags/4.5 /tmp/wordpress-4.5 && cd /tmp/wordpress-4.5 && npm install && grunt build && tar -czf /tmp/wordpress.tar.gz ."
             },
             "results": [ "stdout", "stderr" ]
           }

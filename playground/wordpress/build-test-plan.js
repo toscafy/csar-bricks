@@ -10,6 +10,7 @@ const testssh = require('any2api-testssh');
 const ENDPOINTS_JSON = '/endpoints/endpoints.json';
 const CONTEXT_DIR = '/context';
 const RESULTS_JSON = CONTEXT_DIR + '/build-test-results.json';
+//const WORDPRESS_BUNDLE = CONTEXT_DIR + '/wordpress.tar.gz';
 const POLL_STATUS_DELAY = 5 * 1000;
 
 const csar = 'wordpress';
@@ -99,8 +100,20 @@ const invokeEndpoint = (endpoints, operation, done) => {
 
         console.log('instance status:', instance.status, instanceUrl);
 
-        if (instance.status === 'running') setTimeout(done, POLL_STATUS_DELAY);
-        else done();
+        if (instance.status === 'running') {
+          setTimeout(done, POLL_STATUS_DELAY);
+        } else {
+          if (operation !== 'build-wordpress') return done();
+
+          /*const fileUrl = instanceUrl + '/results/wordpress.tar.gz';
+
+          got.stream(fileUrl).on('error', (err) => {
+            done(new Error('fetching wordpress.tar.gz failed'));
+          }).pipe(fs.createWriteStream(WORDPRESS_BUNDLE)).on('error', (err) => {
+            done(new Error('fetching wordpress.tar.gz failed'));
+          }).on('finish', done);*/
+          done();
+        }
       }).catch(err => {
         done(err);
       });
