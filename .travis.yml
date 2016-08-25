@@ -21,7 +21,7 @@ before_script:
 
 script:
 - sh .scripts/generate.sh
-- travis_wait 40 sh .scripts/test.sh
+- sh .scripts/test.sh
 
 deploy:
   provider: releases
