@@ -10,6 +10,7 @@ const testssh = require('any2api-testssh');
 const ENDPOINTS_JSON = '/endpoints/endpoints.json';
 const CONTEXT_DIR = '/context';
 const RESULTS_JSON = CONTEXT_DIR + '/build-test-results.json';
+const POLL_STATUS_DELAY = 5 * 1000;
 
 const csar = 'wordpress';
 const fallbackArtifact = 'install-deps';
@@ -96,7 +97,10 @@ const invokeEndpoint = (endpoints, operation, done) => {
       }).then(response => {
         instance = response.body;
 
-        setTimeout(done, 3 * 1000);
+        console.log('instance status:', instance.status, instanceUrl);
+
+        if (instance.status === 'running') setTimeout(done, POLL_STATUS_DELAY);
+        else done();
       }).catch(err => {
         done(err);
       });
