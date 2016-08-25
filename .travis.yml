@@ -9,9 +9,9 @@ node_js:
 
 env:
   global:
-  - DOCKER_COMPOSE_VERSION: '1.8.0'
+  - DOCKER_COMPOSE_VERSION=1.8.0
   matrix:
-  - RUNNER: 'smoketest'
+  - RUNNER=smoketest
 
 before_install:
 - sudo rm -rf /usr/local/bin/docker-compose
